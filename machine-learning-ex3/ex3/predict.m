@@ -21,8 +21,15 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
-
-
+% Theta1 has size 25 x 401
+% Theta2 has size 10 x 26
+%X : m* n 5000 * 401 
+% 400 25 10
+% 5000 * 26
+X = [ones(m, 1) X];
+ps = sigmoid([ones(m,1) sigmoid(X *Theta1')] * Theta2');
+[p_max, i_max]=max(ps,[],2);
+p = i_max;
 
 
 
